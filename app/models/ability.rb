@@ -22,9 +22,7 @@ class Ability
         can :dashboard                  # allow access to dashboard
       end
       else
-        can :manage, :all
-        can :access, :rails_admin       # only allow admin users to access Rails Admin
-        can :dashboard                  # allow access to dashboard
+        can :read, :all
       end
 
     #

@@ -42,7 +42,8 @@
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "logout", destroy_user_session_path %></li>
+              <li><%= link_to "logout", new_user_session_path %></li>
+              <li><%= link_to "login", destroy_user_session_path, :method => :delete %></li>
 
             </ul>
           </div><!-- /.navbar-collapse -->
@@ -56,16 +57,14 @@
       	<%= link_to destroy_user_session_path, class: 'logout-button' do %>logout<% end %>
       <% end %>
 
-      <div class="alert alert-success" role="alert">
-        <% if current_user.superadmin_role? || current_user.supervisor_role? %>
-        	<p>Visible only for superadmins and supervisors! </p>
-        <% end %>
+
 
         <% if can? :manage, User %>
-        	<p>signed in as <strong>superadmins</strong> and/or <strong>supervisors</strong>! via CanCanCan</p>
+          <div class="alert alert-success" role="alert">
+          	<p>signed in as <strong>superadmins</strong> and/or <strong>supervisors</strong>! via CanCanCan</p>
+          </div>
         <% end %>
 
-      </div>
 
 
 

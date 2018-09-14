@@ -1,10 +1,13 @@
 class ProjectsController < ApplicationController
   load_and_authorize_resource
+  skip_before_action :authenticate_user!, :only => [:index]
+
   def index
     @projects = Project.all
   end
 
   def show
+    skip_before_action :authenticate_user!, :only => [:index]
     @project = Project.find(params[:id])
   end
 

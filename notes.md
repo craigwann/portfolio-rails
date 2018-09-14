@@ -11,3 +11,7 @@ blue man
 <a href="https://imgur.com/2q7koU5"><img src="https://i.imgur.com/2q7koU5.jpg" title="source: imgur.com" /></a>
 
 <a href="https://imgur.com/xDfxhRD"><img src="https://i.imgur.com/xDfxhRD.jpg" title="source: imgur.com" /></a>
+
+<% if current_user.superadmin_role? || current_user.supervisor_role? %>
+  <p>Visible only for superadmins and supervisors! </p>
+<% end %>
