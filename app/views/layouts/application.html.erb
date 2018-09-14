@@ -10,32 +10,47 @@
   </head>
 
   <body>
-    <% if current_user.nil? %>
-    	<%= link_to new_user_session_path, class: 'login-button' do %>Sign in<% end %>
-    <% else %>
-    	<%= link_to rails_admin_path, class: 'login-button' do %>Admin dashboard<% end %>
-    <% end %>
+    <div class="container">
+      <div class="jumbotron">
+        <h3>Craig Wann</h3>
 
-    <% if current_user.superadmin_role? || current_user.supervisor_role? %>
-    	<p>Visible only for superadmins and supervisors! </p>
-    <% end %>
+      </div>
 
-    <% if can? :manage, User %>
-    	<p>Visible only for superadmins and supervisors! CanCanCan</p>
-    <% end %>
 
-    <% unless flash.empty? %>
-         <script type="text/javascript">
-              <% flash.each do |f| %>
-    	      <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
-    	     	 toastr['<%= type %>']('<%= f[1] %>');
-    	   <% end %>
-         </script>
-    <% end %>
+      <% if current_user.nil? %>
+      	<%= link_to new_user_session_path, class: 'login-button' do %>Sign in<% end %>
+      <% else %>
+      	<%= link_to rails_admin_path, class: 'login-button' do %>Admin dashboard<% end %>
+      	<%= link_to destroy_user_session_path, class: 'logout-button' do %>logout<% end %>
+      <% end %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <div class="alert alert-success" role="alert">
+        <% if current_user.superadmin_role? || current_user.supervisor_role? %>
+        	<p>Visible only for superadmins and supervisors! </p>
+        <% end %>
 
-    <%= yield %>
+        <% if can? :manage, User %>
+        	<p>signed in as <strong>superadmins</strong> and/or <strong>supervisors</strong>! via CanCanCan</p>
+        <% end %>
+
+      </div>
+
+
+
+      <% unless flash.empty? %>
+           <script type="text/javascript">
+                <% flash.each do |f| %>
+      	      <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+      	     	 toastr['<%= type %>']('<%= f[1] %>');
+      	   <% end %>
+           </script>
+      <% end %>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
+
+    </div> <!--CONTAINER-->
   </body>
 </html>
