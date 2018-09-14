@@ -15,7 +15,15 @@
     <% else %>
     	<%= link_to app_dashboard_index_path, class: 'login-button' do %>Go to App<% end %>
     <% end %>
-    
+
+    <% if current_user.superadmin_role? || current_user.supervisor_role? %>
+    	<p>Visible only for superadmins and supervisors! </p>
+    <% end %>
+
+    <% if can? :manage, User %>
+    	<p>Visible only for superadmins and supervisors! CanCanCan</p>
+    <% end %>
+
     <% unless flash.empty? %>
          <script type="text/javascript">
               <% flash.each do |f| %>
