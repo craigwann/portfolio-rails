@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2018_09_14_164223) do
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
-    t.string "catagory"
+    t.string "category"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
