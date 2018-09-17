@@ -12,30 +12,14 @@
 1. Movies: favorite genre being SciFi and fantasy. Top of the list includes Hitchhiker's Guide to the Galaxy, Ex Machina, RED (Retired Extremely Dangerous).
 3. Video games: Top of this list includes Just Cause 3, Borderlands (all), Quake and Doom.
 
+#### Installation
+1. Download github repository from
+`git clone https://github.com/craigwann/portfolio-rails.git`
+1. Ruby version 2.5.0 Rails version 5.2.1
+1. navigate to project directory `bundle install` and `rake db:setup`
+1. admin email= admin@admin.com and password= `password`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-email = 'admin@admin.com'
-password = 'password'
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 ## License
 
 This software is licensed under the MIT license.

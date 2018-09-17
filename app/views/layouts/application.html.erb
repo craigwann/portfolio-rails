@@ -12,7 +12,7 @@
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h3>Craig Wann</h3>
+        <h2>Craig Wann</h2>
 
       </div>
 
@@ -36,8 +36,8 @@
               <li><a href="#">Link</a></li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "logout", new_user_session_path %></li>
-              <li><%= link_to "login", destroy_user_session_path, :method => :delete %></li>
+              <li><%= link_to "login", new_user_session_path %></li>
+              <li><%= link_to "logout", destroy_user_session_path, :method => :delete %></li>
               <li><%= link_to "Admin", rails_admin_path  %></li>
 
             </ul>
