@@ -13,6 +13,14 @@ project_list = [
   ["Product Illustrations", "Illustration", "https://i.imgur.com/LO5P6nX.jpg", "https://i.imgur.com/SrT6ZIB.jpg", "Illustrations for product manual"]
 ]
 
+
 project_list.each do |projname, cat, imgurl, imgurlsm, desc|
   Project.create( name: projname, category: cat, image: imgurl, imgsm: imgurlsm, description: desc )
+end
+
+user_list = [
+  [ "admin@admin.com", "password", true ]
+]
+user_list.each do |usr_email, pswrd, role|
+  User.create!( email: usr_email, password: pswrd, superadmin_role: role )
 end
